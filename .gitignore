@@ -7,3 +7,5 @@ venv
 .vscode
 
 *db.sqlite3
+
+julia_toys.code-workspace
