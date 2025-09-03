@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вязаные игрушки ручной работы</title>
+    {% load static %}
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        
+        .background-container {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .background-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover; /* Обрезаем фото */
+            object-position: center 30%; /* Сдвигаем обрезку на 30% сверху */
+        }
+    </style>
+</head>
+<body>
+    <!-- Фоновая фотография -->
+    <div class="background-container">
+        <img src="{% static 'images/background.jpg' %}" alt="Фон вязаных игрушек" class="background-image">
+    </div>
+    
+    <!-- Ваш контент будет здесь -->
+</body>
+</html>
