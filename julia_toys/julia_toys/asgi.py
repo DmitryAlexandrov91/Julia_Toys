@@ -1,5 +1,4 @@
-"""
-ASGI config for Julia_Toys project.
+"""ASGI config for Julia_Toys project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

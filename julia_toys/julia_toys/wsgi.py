@@ -1,5 +1,4 @@
-"""
-WSGI config for Julia_Toys project.
+"""WSGI config for Julia_Toys project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
