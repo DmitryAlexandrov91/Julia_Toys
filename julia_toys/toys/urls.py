@@ -5,5 +5,9 @@ from . import views
 app_name = 'toys'
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path(
+        '',
+        views.ToyListView.as_view(),
+        name='index'
+    ),
 ]
