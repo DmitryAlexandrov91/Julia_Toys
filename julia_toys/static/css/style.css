@@ -2,7 +2,7 @@
 
 body {
     background-image: url('../images/background.jpg');
-    background-size: 100% auto; /* Растягиваем по ширине */
+    background-size: 100% auto;
     background-repeat: no-repeat;
     background-position: center top;
     background-attachment: scroll;
@@ -10,39 +10,186 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
     /* Убираем min-height, чтобы высота была по контенту */
 }
 
-.content {
-    position: relative;
-    padding: 20px;
-    /* Высота контента должна быть больше высоты фото */
-    min-height: 260vh;
+header {
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
 }
 
-h1, h2, h3 {
-    text-align: center;
-    padding: 20px;
-    color: #333; /* Темный цвет для заголовков */
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); /* Белая тень для темного текста */
-}
-
-p {
+footer {
     text-align: center;
     padding: 10px 20px;
-    color: #333;
+    color: #000000;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
     max-width: 800px;
     margin: 0 auto;
 }
 
-/* Дополнительно: стили для контентных блоков */
-.content-block {
-    background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон */
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px auto;
+.nav {
+    display: flex;
+    list-style: none; /* Убираем точки */
+    gap: 3rem; /* Больше расстояния между ссылками */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #5d4037;
+    padding: 0.75rem 1.5rem; /* Увеличиваем размер */
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 600; /* Жирнее шрифт */
+    font-size: 1.8rem; /* Увеличиваем размер текста */
+    border: 2px solid transparent;
+}
+
+.nav-link:hover {
+    background-color: rgba(141, 110, 99, 0.15);
+    color: #4e342e;
+    border-color: #d7ccc8;
+}
+
+.nav-link.active {
+    background-color: #8d6e63;
+    color: white;
+    border-color: #6d4c41;
+}
+
+
+.content {
+    position: relative;
+    min-height: 260vh;
+}
+
+/* Основной контент-блок */
+.main-content {
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 0 auto;
+    max-width: 1000px;
+
+
+}
+
+/* Заголовки */
+h1 {
+    text-align: center;
+    color: #5d4037;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+    font-weight: 700;
+}
+
+h2 {
+    text-align: center;
+    color: #6d4c41;
+    font-size: 2rem;
+    margin: 2rem 0 1.5rem 0;
+    font-weight: 600;
+}
+
+h3 {
+    text-align: center;
+    color: #795548;
+    font-size: 1.5rem;
+    margin: 1.5rem 0 1rem 0;
+    font-weight: 600;
+}
+
+/* Параграфы */
+p {
+    text-align: center;
+    color: #000000;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    margin: 1rem auto;
     max-width: 800px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Карточки товаров/услуг */
+.product-card {
+    border-radius: 15px;
+    padding: 25px;
+    margin: 20px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(141, 110, 99, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Кнопки в стиле header */
+.btn-primary {
+    background-color: #8d6e63;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    border: 2px solid #8d6e63;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: #8d6e63;
+    border-color: #8d6e63;
+}
+
+/* Сетка для товаров */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+/* Блок с отзывами */
+.testimonial {
+    background: rgba(255, 255, 255, 0.8);
+    border-left: 4px solid #8d6e63;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 0 10px 10px 0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .content {
+        padding: 20px 10px;
+    }
+    
+    .main-content {
+        padding: 20px;
+        margin: 0 10px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .nav {
+        gap: 1rem;
+    }
+    
+    .nav-link {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+    }
 }
