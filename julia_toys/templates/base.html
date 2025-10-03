@@ -5,41 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Вязаные игрушки ручной работы{% endblock %}</title>
     {% load static %}
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
-        
-        .background-container {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .background-image {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1;
-        }
-    </style>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <div class="background-container">
-        <img src="{% static 'images/background.jpg' %}" alt="Фон вязаных игрушек" class="background-image">
+    <div class="header">
+        {% block header %}
+        {% include "components/header.html" %}
+        {% endblock %}
     </div>
     
     <div class="content">
         {% block content %}
+        {% endblock %}
+    </div>
+
+    <div class="footer">
+        {% block footer %}
+        {% include "components/footer.html" %}
         {% endblock %}
     </div>
 
