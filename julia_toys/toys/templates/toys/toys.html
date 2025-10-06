@@ -4,9 +4,10 @@
   <div class="main-content">
     <div class="products-grid">
       {% for toy in toys %}
+      {% if toy.is_available %}
       <div class="product-card">
         <h3>{{ toy.name }}</h3>
-        <p>{{ toy.description }}</p>
+        <p>{{ toy.description|truncatewords:20 }}</p>
         {% for image in toy.images.all %}
           {% if image.is_main %}
           <img src="{{ image.image.url }}">
@@ -14,8 +15,28 @@
         {% endfor %}
         <a href="#" class="btn-primary">Подробнее</a>
       </div>
+      {% endif %}
       {% endfor %}
     </div>
+    <!-- Блок пагинации -->
+    {% if is_paginated %}
+    <div class="pagination">
+      {% if page_obj.has_previous %}
+        <a href="?page=1" class="btn-primary">Первая</a>
+        <a href="?page={{ page_obj.previous_page_number }}" class="btn-primary">Назад</a>
+      {% endif %}
+      
+      <span class="current-page">
+        Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+      </span>
+      
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="btn-primary">Вперед</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}" class="btn-primary">Последняя</a>
+      {% endif %}
+    </div>
+    {% endif %}
+
   </div>
 </div>
 {% endblock %}

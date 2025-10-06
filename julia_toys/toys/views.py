@@ -12,6 +12,8 @@ class ToyListView(ListView):
     template_name = 'toys/toys.html'
     model = Toy
     context_object_name = 'toys'
+    paginate_by = 8
+    ordering = ['-updated_at']
 
     def get_queryset(self) -> QuerySet[Any]:
         """Подгрузка к кверисету связанных изображений."""
