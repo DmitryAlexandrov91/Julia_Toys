@@ -2,5 +2,7 @@ from django.apps import AppConfig
 
 
 class ToysConfig(AppConfig):
+    """Конфиг класса."""
+
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'toys'

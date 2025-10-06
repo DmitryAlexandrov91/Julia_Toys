@@ -10,7 +10,6 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
-    /* Убираем min-height, чтобы высота была по контенту */
 }
 
 header {
@@ -71,11 +70,11 @@ footer {
 
 /* Основной контент-блок */
 .main-content {
-    backdrop-filter: blur(10px);
+    /* backdrop-filter: blur(10px); размытие фона*/  
     border-radius: 20px;
     padding: 40px;
     margin: 0 auto;
-    max-width: 1000px;
+    max-width: auto;
 
 
 }
@@ -125,10 +124,14 @@ p {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     border: 1px solid rgba(141, 110, 99, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
+    /* transform: translateY(-5px); */
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
@@ -144,18 +147,20 @@ p {
     font-size: 1.1rem;
     transition: all 0.3s ease;
     display: inline-block;
+    margin-top: auto; /* ← вот это прижмёт кнопку к низу */
+    align-self: center; /* выравнивание по центру */
 }
 
 .btn-primary:hover {
-    background-color: transparent;
-    color: #8d6e63;
+    /* background-color: transparent; */
+    color: #ffffff;
     border-color: #8d6e63;
 }
 
 /* Сетка для товаров */
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(4, minmax(300px, 1fr));
     gap: 30px;
     margin: 40px 0;
 }
@@ -167,6 +172,29 @@ p {
     padding: 20px;
     margin: 20px 0;
     border-radius: 0 10px 10px 0;
+}
+
+
+/* Пагинация */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.pagination .btn-primary {
+    margin-top: 0;
+    padding: 8px 20px;
+    font-size: 1rem;
+}
+
+.current-page {
+    color: #000000;
+    font-weight: 600;
+    padding: 0 15px;
 }
 
 /* Адаптивность */
