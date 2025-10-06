@@ -2,6 +2,8 @@ from django.db import models
 
 
 class Toy(models.Model):
+    """Модель игрушек."""
+
     name = models.CharField(
         max_length=50,
         verbose_name='Название')
@@ -26,10 +28,12 @@ class Toy(models.Model):
         verbose_name_plural = 'Игрушки'
 
     def __str__(self) -> str:
-        return f'Игрушка {self.name}'
+        return self.name
 
 
 class ToyImage(models.Model):
+    """Модель фото игрушек."""
+
     toy = models.ForeignKey(
         Toy,
         on_delete=models.CASCADE,
@@ -48,5 +52,5 @@ class ToyImage(models.Model):
         verbose_name = 'Фото игрушки'
         verbose_name_plural = 'Фото игрушек'
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'Фото для {self.toy.name}'

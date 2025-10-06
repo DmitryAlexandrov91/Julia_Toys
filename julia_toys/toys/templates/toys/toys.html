@@ -7,6 +7,11 @@
             <div class="product-card">
                 <h3>{{ toy.name }}</h3>
                 <p>{{ toy.description }}</p>
+                {% for image in toy.images.all %}
+                    {% if image.is_main %}
+                    <img src="{{ image.image.url }}">
+                    {% endif %}
+                {% endfor %}
                 <a href="#" class="btn-primary">Подробнее</a>
             </div>
             {% endfor %}

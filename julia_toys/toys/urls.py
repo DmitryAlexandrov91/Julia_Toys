@@ -8,6 +8,6 @@ urlpatterns = [
     path(
         '',
         views.ToyListView.as_view(),
-        name='index'
+        name='index',
     ),
 ]
